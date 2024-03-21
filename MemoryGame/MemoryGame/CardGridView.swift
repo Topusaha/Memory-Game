@@ -8,29 +8,49 @@
 import SwiftUI
 
 
+
+
+
 struct CardGridView: View {
+        
+    @State var tapped = 0
+    @State var chosenEmoji: [Card] = []
+        
+    let data = (1...6).map { "Item \($0)" }
+
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+        GridItem(.flexible()),
+    ]
     
-        let data = (1...9).map { "Item \($0)" }
 
-            let columns = [
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-                GridItem(.flexible()),
-            ]
+    var body: some View {
+        
 
-            var body: some View {
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 1) {
-                        ForEach(data, id: \.self) { item in
-                            CardView()
-                        }
-                    }
-                    .padding(.top, 100)
-                    .padding(.horizontal, 10)
-                }
-                .frame(maxHeight: 700)
+        ScrollView {
+        
+            VStack {
+                Text("Tapped \(chosenEmoji.count)")
+                    .padding()
             }
-    }
+                LazyVGrid(columns: columns, spacing: 1) {
+                    ForEach(data, id: \.self) { item in
+                        CardView(card : Card(isFacedDown: true, emoji: item), chosenEmoji: $chosenEmoji)
+                        
+                
+                        
+                    }
+                }
+                .padding(.top, 100)
+                .padding(.horizontal, 10)
+                
+            }
+            .frame(maxHeight: 700)
+        }
+       
+    
+}
 
 
 struct CardGridView_Previews: PreviewProvider {

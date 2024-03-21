@@ -7,15 +7,24 @@
 
 import SwiftUI
 
+// method to check if 2 cards matches
+
 struct ContentView: View {
+    
+    @State var tapped = 0
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            CardGridView()
+                .onTapGesture {
+                    tapped += 1
+                }
+            
+            Text("Tapped \(tapped)")
+            
         }
-        .padding()
+        
     }
 }
 
