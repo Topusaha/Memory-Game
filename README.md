@@ -26,7 +26,7 @@ The following **required** functionality is completed:
  
 The following **optional** features are implemented:
 
-- [ ] User can select number of pairs to play with (at least 2 unique values like 2 and 4).
+- [X] User can select number of pairs to play with (at least 2 unique values like 2 and 4).
   * (Hint: user Picker)
 - [X] App allows for user to scroll to see pairs out of view.
   * (Hint: Use a Scrollview)
@@ -41,14 +41,11 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide]](https://www.youtube.com/watch?v=GA92eKlYio4) .
+https://www.loom.com/share/d6c08371a2c849d282fa3ef49cced71f?sid=5ce26782-a01d-44a0-8610-49a40e49c24d
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+
 
 ## License
 

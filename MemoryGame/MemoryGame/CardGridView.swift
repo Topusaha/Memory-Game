@@ -3,6 +3,7 @@ import SwiftUI
 struct CardGridView: View {
     //@State private var data = [String]()
    @State private var data = [Card]()
+   
     
     private let allEmojis = [
         "😄", "😢", "❤️", "😠", "😂", "😭", "😎", "😲", "👍", "👎", "🔥", "🚀", "☕", "🍕", "🍔", "🌮", "🌯", "🍦", "🍰", "🍺", "🍷"
@@ -50,16 +51,8 @@ struct CardGridView: View {
     }
 
     private func createLayout(num: Int) {
-        
-        var myData : [String] =  [String]()
-        
-        for _ in 1...num {
-            let random_emoji = allEmojis[Int.random(in: 0..<allEmojis.count)]
-            myData.append(random_emoji)
-        }
-        
-        myData += myData
-        myData.shuffle()
+        var myData : [String] = [String]()
+        myData = GameLogic.init(numberOfPairs: num).cards
         data = myData.map { emoji in
             Card(id: UUID(), emoji: emoji)
         }

@@ -13,6 +13,7 @@
 		047A7A7A2BAB84E1004B4044 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047A7A792BAB84E1004B4044 /* Preview Assets.xcassets */; };
 		047A7A832BAB95CA004B4044 /* CardGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A7A822BAB95CA004B4044 /* CardGridView.swift */; };
 		047A7A852BAB96C7004B4044 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A7A842BAB96C7004B4044 /* CardView.swift */; };
+		047A7A872BAE725C004B4044 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047A7A862BAE725C004B4044 /* GameLogic.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		047A7A792BAB84E1004B4044 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		047A7A822BAB95CA004B4044 /* CardGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGridView.swift; sourceTree = "<group>"; };
 		047A7A842BAB96C7004B4044 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		047A7A862BAE725C004B4044 /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				047A7A722BAB84E0004B4044 /* MemoryGameApp.swift */,
 				047A7A822BAB95CA004B4044 /* CardGridView.swift */,
+				047A7A862BAE725C004B4044 /* GameLogic.swift */,
 				047A7A842BAB96C7004B4044 /* CardView.swift */,
 				047A7A742BAB84E0004B4044 /* ContentView.swift */,
 				047A7A762BAB84E1004B4044 /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 				047A7A752BAB84E0004B4044 /* ContentView.swift in Sources */,
 				047A7A732BAB84E0004B4044 /* MemoryGameApp.swift in Sources */,
 				047A7A852BAB96C7004B4044 /* CardView.swift in Sources */,
+				047A7A872BAE725C004B4044 /* GameLogic.swift in Sources */,
 				047A7A832BAB95CA004B4044 /* CardGridView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

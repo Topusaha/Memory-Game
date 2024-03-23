@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Card: Identifiable, Hashable {
     var id: UUID
-    
     var emoji: String
 }
 
@@ -17,7 +16,7 @@ struct CardView: View {
     
     
     @State var card: Card
-    @State var isFaceDown: Bool = true 
+    @State var isFaceDown: Bool = true
     
     
     var body: some View {
@@ -32,7 +31,7 @@ struct CardView: View {
         .frame(width: 125, height: 200)
         .padding()
         .onTapGesture {
-            isFaceDown = false
+            isFaceDown.toggle()
            
             }
         }
