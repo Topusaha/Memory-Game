@@ -3,17 +3,13 @@ import SwiftUI
 struct CardGridView: View {
     //@State private var data = [String]()
    @State private var data = [Card]()
-    /*
-    private let allEmojis = [
-        "😄", "😢", "❤️", "😠", "😂", "😭", "😎", "😲", "👍", "👎", "🔥", "🚀", "☕", "🍕", "🍔", "🌮", "🌯", "🍦", "🍰", "🍺", "🍷"
-    ]
-    */
     
     private let allEmojis = [
         "😄", "😢", "❤️", "😠", "😂", "😭", "😎", "😲", "👍", "👎", "🔥", "🚀", "☕", "🍕", "🍔", "🌮", "🌯", "🍦", "🍰", "🍺", "🍷"
-    ].map { Card(id: UUID(), emoji: $0)
-        
-    }
+    ]
+    
+    
+    
     
     
     
@@ -31,14 +27,13 @@ struct CardGridView: View {
             
             ScrollView {
                 
-                //LazyVGrid(columns: columns, spacing: 1) {
-                VStack {
+                LazyVGrid(columns: columns, spacing: 1) {
+               
                     ForEach(data) { item in
                         //CardView(card: Card(id: UUID(), emoji: item))
                         CardView(card: item)
                     }
                 
-                   // }
                 }
                 .padding(.top, 100)
                 .padding(.horizontal, 10)
@@ -49,16 +44,19 @@ struct CardGridView: View {
     }
 
     private func createLayout(num: Int) {
-        data.removeAll()
+        
+        var myData : [String] =  [String]()
         
         for _ in 1...num {
             let random_emoji = allEmojis[Int.random(in: 0..<allEmojis.count)]
-            
-            data.append(random_emoji)
+            myData.append(random_emoji)
         }
         
-        data += data
-        data.shuffle()
+        myData += myData
+        myData.shuffle()
+        data = myData.map { emoji in
+            Card(id: UUID(), emoji: emoji)
+        }
     }
 }
 
