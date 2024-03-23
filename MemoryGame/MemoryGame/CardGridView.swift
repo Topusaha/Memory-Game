@@ -23,6 +23,9 @@ struct CardGridView: View {
                     Button("6 Pairs") { createLayout(num: 6) }
                     Button("10 Pairs") { createLayout(num: 10) }
                 }
+                
+                Button("Reset") { resetGame() }
+                    
             }
             
             ScrollView {
@@ -30,7 +33,6 @@ struct CardGridView: View {
                 LazyVGrid(columns: columns, spacing: 1) {
                
                     ForEach(data) { item in
-                        //CardView(card: Card(id: UUID(), emoji: item))
                         CardView(card: item)
                     }
                 
@@ -41,6 +43,10 @@ struct CardGridView: View {
             .frame(maxHeight: 700)
             
         }
+    }
+    
+    private func resetGame() {
+        data = []
     }
 
     private func createLayout(num: Int) {
