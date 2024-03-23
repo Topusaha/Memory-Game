@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct Card {
-    var isFacedDown: Bool
+struct Card: Identifiable, Hashable {
+    var id: UUID
+    
     var emoji: String
 }
 
@@ -16,44 +17,23 @@ struct CardView: View {
     
     
     @State var card: Card
-    @Binding var chosenEmoji: [Card]
+    @State var isFaceDown: Bool = true 
     
     
     var body: some View {
         VStack {
             
             RoundedRectangle(cornerRadius: 25.0)
-                .fill(card.isFacedDown ? Color.blue : Color.white)
+                .fill(isFaceDown ? Color.blue : Color.white)
             
-            Text(card.isFacedDown ? "" : card.emoji)
+            Text(isFaceDown ? "" : card.emoji)
             
         }
         .frame(width: 125, height: 200)
         .padding()
         .onTapGesture {
-            card.isFacedDown.toggle()
-            chosenEmoji.append(card)
-            
-            if chosenEmoji.count == 2 {
-                var card1 = chosenEmoji[0]
-                var card2 = chosenEmoji[1]
-                
-                if card1.emoji != card2.emoji {
-                    
-                    for index in chosenEmoji.indices {
-                        chosenEmoji[index].isFacedDown = true
-                    }
-                }
-                    
-                
-                else {
-                    card1.emoji = ""
-                    card2.emoji = ""
-                }
-                
-                    chosenEmoji.remove(at: 1)
-                    chosenEmoji.remove(at: 0)
-                }
+            isFaceDown = false
+           
             }
         }
 }

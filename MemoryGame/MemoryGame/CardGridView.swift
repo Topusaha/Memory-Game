@@ -1,60 +1,74 @@
-//
-//  CardGridView.swift
-//  MemoryGame
-//
-//  Created by Topu Saha on 3/20/24.
-//
-
 import SwiftUI
 
-
-
-
-
 struct CardGridView: View {
-        
-    @State var tapped = 0
-    @State var chosenEmoji: [Card] = []
-        
-    let data = (1...6).map { "Item \($0)" }
-
-    let columns = [
-        GridItem(.flexible()),
-        GridItem(.flexible()),
-        GridItem(.flexible()),
+    //@State private var data = [String]()
+   @State private var data = [Card]()
+    
+    private let allEmojis = [
+        "😄", "😢", "❤️", "😠", "😂", "😭", "😎", "😲", "👍", "👎", "🔥", "🚀", "☕", "🍕", "🍔", "🌮", "🌯", "🍦", "🍰", "🍺", "🍷"
     ]
     
+    
+    
+    
+    
+    
+    private let columns = Array(repeating: GridItem(.flexible()), count: 3)
 
     var body: some View {
-        
-
-        ScrollView {
-        
-            VStack {
-                Text("Tapped \(chosenEmoji.count)")
-                    .padding()
-            }
-                LazyVGrid(columns: columns, spacing: 1) {
-                    ForEach(data, id: \.self) { item in
-                        CardView(card : Card(isFacedDown: true, emoji: item), chosenEmoji: $chosenEmoji)
-                        
+        VStack {
+            HStack {
+                Menu("Pick Pairs") {
+                    Button("3 Pairs") { createLayout(num: 3) }
+                    Button("6 Pairs") { createLayout(num: 6) }
+                    Button("10 Pairs") { createLayout(num: 10) }
+                }
                 
-                        
+                Button("Reset") { resetGame() }
+                    
+            }
+            
+            ScrollView {
+                
+                LazyVGrid(columns: columns, spacing: 1) {
+               
+                    ForEach(data) { item in
+                        CardView(card: item)
                     }
+                
                 }
                 .padding(.top, 100)
                 .padding(.horizontal, 10)
-                
             }
             .frame(maxHeight: 700)
+            
         }
-       
+    }
     
-}
+    private func resetGame() {
+        data = []
+    }
 
+    private func createLayout(num: Int) {
+        
+        var myData : [String] =  [String]()
+        
+        for _ in 1...num {
+            let random_emoji = allEmojis[Int.random(in: 0..<allEmojis.count)]
+            myData.append(random_emoji)
+        }
+        
+        myData += myData
+        myData.shuffle()
+        data = myData.map { emoji in
+            Card(id: UUID(), emoji: emoji)
+        }
+    }
+}
 
 struct CardGridView_Previews: PreviewProvider {
     static var previews: some View {
         CardGridView()
     }
 }
+
